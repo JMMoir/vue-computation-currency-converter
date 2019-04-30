@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+
+      <h1>Euro Converter</h1>
+
+      <input placeholder="Enter amount in Euro" type="number" v-model.number="euroAmount">
+      <select v-model="selected">
+        <option v-bind:value= "rate" v-for='(rate, country) in currencies.rates'>{{`${country} (${rate})`}}</option>
+      </select>
+
+      <p id="result">{{convertedRate}}</p>
+
+      <h1>Convert into Euros</h1>
+      <input type="number" placeholder="Amount to convert" v-model.number="convertToEuro">
+      <select v-model="selectedRate">
+        <option v-bind:value= "rate" v-for='(rate, country) in currencies.rates'>{{country}}</option>
+      </select>
+      <p id="result">{{convertedEuroRate}}</p>
+
+      <h1>Select currencies</h1>
+      <input type="number" placeholder="Amount to convert" v-model.number="convertToAny">
+      <select v-model="selectedRate1">
+        <option v-bind:value= "rate" v-for='(rate, country) in currencies.rates'>{{country}}</option>
+      </select>
+      <select v-model="selectedRate2">
+        <option v-bind:value= "rate" v-for='(rate, country) in currencies.rates'>{{country}}</option>
+      </select>
+      <p id="result">{{convertedAny}}</p>
+    </div>
+
+  </body>
+</html>
